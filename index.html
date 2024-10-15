@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body{
+            width: 80%;
+            margin: 0 auto;
+        }
+        h1,p{
+            text-align: center;
+        }
+        a{
+            font-size:18px;
+        }
+        a:visited{
+            color:blue;
+        }
+    </style>
+    <title>Db php API</title>
+</head>
+<body>
+    <h1>RESTFUL API database</h1>
+    <p><b>url</b> = https://da-api.000webhostapp.com/api/</p>
+
+    <div id="usertype"><a href="#" onclick="show('usertype')"><b>userType:</b></a>
+        <ul id="usertypeShow" style="display: none;">
+            <li><b><u>GetAll:</u></b>&nbsp;&nbsp;&nbsp;userType/GetAll/</li>
+            <li><b><u>GetById:</u></b>&nbsp;&nbsp;&nbsp; userType/GetById/?id=?</li>
+        </ul>
+    </div><hr>
+    <div id="user"><a href="#" onclick="show('user')"><b>user:</b></a>
+        <ul id="userShow" style="display: none;">
+            <li><b><u>GetAll:</u></b>  user/GetAll/</li>
+            <li><b><u>GetById:</u></b> user/GetById/?id=?</li>
+            <li><b><u>GetByTypeId:</u></b>  user/GetByTypeId/?id=?</li>
+            <li><b><u>GetByUserName:</u></b> user/GetByUserName/?id=?</li>
+            <hr>
+            <pre> 
+{
+    "userName":"test",
+    "userPassword":"123456",
+    "typeID":"3"
+}
+            </pre><hr>
+            <li><b><u>Post:</u></b>  user/Post/</li>
+            <li><b><u>Put:</u></b> user/Put/?id=?</li>
+            <li><b><u>Delete:</u></b>  user/Delete/?id=?</li>
+        </ul>
+    </div><hr>
+    <div id="store"><a href="#" onclick="show('store')"><b>store:</b></a>
+        <ul id="storeShow" style="display: none;">
+            <li><b><u>GetAll:</u></b>  store/GetAll/</li>
+            <li><b><u>GetById:</u></b> store/GetById/?id=?</li>
+            <li><b><u>GetByOwner:</u></b>  store/GetByOwner/?id=?</li>
+            <hr>
+            <pre>
+{
+    "storeName":"storeupdate",
+    "storeAddress":"2",
+    "ownerID":"1"
+}
+            </pre><hr>
+            <li><b><u>Post:</u></b>  store/Post/</li>
+            <li><b><u>Put:</u></b> store/Put/?id=?</li>
+            <li><b><u>Delete:</u></b>  store/Delete/?id=?</li>
+        </ul>
+    </div><hr>
+    <div id="product"><a href="#" onclick="show('product')"><b>product:</b></a>
+        <ul id="productShow" style="display: none;">
+            <li><b><u>GetAll:</u></b>  product/GetAll/</li>
+            <li><b><u>GetById:</u></b> product/GetById/?id=?</li>
+            <hr>
+            <pre>
+{
+    "productName": "hi1",
+    "productPrice": "5000"
+}
+            </pre><hr>
+            <li><b><u>Post:</u></b>  product/Post/</li>
+            <li><b><u>Put:</u></b> product/Put/?id=?</li>
+            <li><b><u>Delete:</u></b>  product/Delete/?id=?</li>
+        </ul>
+    </div><hr>
+    <div id="storeproduct"><a href="#" onclick="show('storeproduct')"><b>storeproduct:</b></a>
+        <ul id="storeproductShow" style="display: none;">
+            <li><b><u>GetById:</u></b> storeproduct/GetByProductId/?id=?</li>
+            <li><b><u>GetById:</u></b> storeproduct/GetByStoreId/?id=?</li>
+            <hr>
+            <pre>
+{
+    "storeID":"1",
+    "productID":"4",
+    "remaining":"15"
+}
+            </pre><hr>
+            <li><b><u>Post:</u></b>  storeproduct/Post/</li>
+            <li><b><u>Put:</u></b> storeproduct/Put/?sid=?&pid=?</li>
+            <li><b><u>Delete:</u></b>  storeproduct/Delete/?sid=?&pid=?</li>
+        </ul>
+    </div><hr>
+    <div id="event"><a href="#" onclick="show('event')"><b>event:</b></a>
+        <ul id="eventShow" style="display: none;">
+            <li><b><u>GetAll:</u></b>  event/GetAll/</li>
+            <li><b><u>GetById:</u></b> event/GetById/?id=?</li>
+            <li><b><u>GetById:</u></b> event/GetByOwner/?id=?</li>
+            <hr>
+            <pre>
+{
+    "eventName":"eventupdate",
+    "releaseDate":"2023-05-01",
+    "endDate":"2023-05-25",
+    "userID":"1"
+}
+            </pre><hr>
+            <li><b><u>Post:</u></b>  event/Post/</li>
+            <li><b><u>Put:</u></b> event/Put/?id=?</li>
+            <li><b><u>Delete:</u></b>  event/Delete/?id=?</li>
+        </ul>
+    </div><hr>
+    <div id="game"><a href="#" onclick="show('game')"><b>game:</b></a>
+        <ul id="gameShow" style="display: none;">
+            <li><b><u>GetAll:</u></b>  game/GetAll/</li>
+            <li><b><u>GetById:</u></b> game/GetById/?id=?</li>
+            <hr>
+            <pre>
+{
+    "gameName":"gametest",
+    "gameLink":""
+}
+            </pre><hr>
+            <li><b><u>Post:</u></b>  game/Post/</li>
+            <li><b><u>Put:</u></b> game/Put/?id=?</li>
+            <li><b><u>Delete:</u></b>  game/Delete/?id=?</li>
+        </ul>
+    </div><hr>
+    <div id="gameevent"><a href="#" onclick="show('gameevent')"><b>gameevent:</b></a>
+        <ul id="gameeventShow" style="display: none;">
+            <li><b><u>GetById:</u></b> gameevent/GetByEventId/?id=?</li>
+            <li><b><u>GetById:</u></b> gameevent/GetByGameId/?id=?</li>
+            <hr>
+            <pre>
+{
+    "gameID":"2",
+    "eventID":"3"
+}
+            </pre><hr>
+            <li><b><u>Post:</u></b>  gameevent/Post/</li>
+            <li><b><u>Put:</u></b> gameevent/Put/?gid=?&eid=?</li>
+            <li><b><u>Delete:</u></b>  gameevent/Delete/?gid=?&eid=?</li>
+        </ul>
+    </div><hr>
+    <div id="vourcher"><a href="#" onclick="show('vourcher')"><b>vourcher:</b></a>
+        <ul id="vourcherShow" style="display: none;">
+            <li><b><u>GetAll:</u></b>  vourcher/GetAll/</li>
+            <li><b><u>GetById:</u></b> vourcher/GetByEvent/?id=?</li>
+            <li><b><u>GetById:</u></b> vourcher/GetById/?id=?</li>
+            <li><b><u>GetById:</u></b> vourcher/GetByOwner/?id=?</li>
+            <hr>
+            <pre>
+{
+    "vourcherName":"test",
+    "vourcherValue":"70",
+    "expirationDate":"2023-05-30",
+    "eventID":"2",
+    "vourcherStatus":"0",
+    "ownerID":"1"
+    }
+            </pre><hr>
+            <li><b><u>Post:</u></b>  vourcher/Post/</li>
+            <li><b><u>Put:</u></b> vourcher/Put/?id=?</li>
+            <li><b><u>Delete:</u></b>  vourcher/Delete/?id=?</li>
+        </ul>
+    </div><hr>
+    <div id="play"><a href="#" onclick="show('play')"><b>play:</b></a>
+        <ul id="playShow" style="display: none;">
+            <li><b><u>GetAll:</u></b>  play/GetAll/</li>
+            <li><b><u>GetById:</u></b> play/GetByGameEvent/?gid=?&eid=?</li>
+            <li><b><u>GetById:</u></b> play/GetById/?id=?</li>
+            <li><b><u>GetById:</u></b> play/GetByUser/?id=?</li>
+            <hr>
+            <pre>
+                {
+                    "eventID":"1",
+                    "gameID":"1",
+                    "userID":"1",
+                    "vourcherID":"2"
+                 }
+            </pre><hr>
+            <li><b><u>Post:</u></b>  vourcher/Post/</li>
+            <li><b><u>Put:</u></b> vourcher/Put/?id=?</li>
+            <li><b><u>Delete:</u></b>  vourcher/Delete/?id=?</li>
+        </ul>
+    </div><hr>
+
+
+
+    <!--Script-->
+    <script>
+        function show(id){
+            str = id + "Show";
+            ul = document.getElementById(str);
+            switch(ul.style.display){
+                case "none":
+                    ul.style.display = "block";
+                break;
+                case "block":
+                    ul.style.display = "none";
+                break;
+            } 
+        }
+       
+    </script>
+
+</body>
+</html>
